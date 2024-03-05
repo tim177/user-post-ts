@@ -33,5 +33,3 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
     </>
   );
 }
-
-// export default Navbar;
