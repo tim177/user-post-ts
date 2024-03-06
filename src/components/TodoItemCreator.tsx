@@ -6,9 +6,11 @@ import { generateUID } from "../utils/uuid";
 export const TodoItemCreator: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [todoList, setTodoList] = useRecoilState(todoListAtom);
+  const [warning, setWarning] = useState<string>("");
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
+    setWarning("");
   };
 
   const addTodoItem = () => {
@@ -22,6 +24,8 @@ export const TodoItemCreator: React.FC = () => {
         },
       ]);
       setInputValue("");
+    } else {
+      setWarning("Please enter a task before adding.");
     }
   };
 
@@ -41,6 +45,7 @@ export const TodoItemCreator: React.FC = () => {
           Add Task
         </button>
       </div>
+      {warning && <p className="text-red-500">{warning}</p>}
     </div>
   );
 };
