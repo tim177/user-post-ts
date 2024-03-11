@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { todoListAtom } from "../recoil/atoms/todoAtom";
+import { ToDo, todoListAtom } from "../recoil/atoms/todoAtom";
 import { Trash2 } from "lucide-react";
 
 interface TodoItemProps {
@@ -10,7 +10,7 @@ interface TodoItemProps {
   };
 }
 
-export const TodoItem: React.FC<TodoItemProps> = ({ item }) => {
+export const TodoItem = ({ item }: TodoItemProps) => {
   const [todoList, setTodoList] = useRecoilState(todoListAtom);
   const index = todoList.findIndex((listItem) => listItem === item);
 
@@ -62,10 +62,10 @@ export const TodoItem: React.FC<TodoItemProps> = ({ item }) => {
   );
 };
 
-const replaceItemAtIndex = (arr: any[], index: number, newValue: any) => {
+const replaceItemAtIndex = (arr: ToDo[], index: number, newValue: ToDo) => {
   return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
 };
 
-const removeItemAtIndex = (arr: any[], index: number) => {
+const removeItemAtIndex = (arr: ToDo[], index: number) => {
   return [...arr.slice(0, index), ...arr.slice(index + 1)];
 };

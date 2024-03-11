@@ -21,7 +21,7 @@ const filteredTodoListState = selector({
   },
 });
 
-export const TodoMain: React.FC = () => {
+export const TodoMain = () => {
   const todoList = useRecoilValue(filteredTodoListState);
 
   return (

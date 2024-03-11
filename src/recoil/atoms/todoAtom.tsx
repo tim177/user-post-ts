@@ -1,17 +1,19 @@
 import { atom } from "recoil";
 
-interface ToDo {
+export interface ToDo {
   id: string;
   text: string;
   isComplete: boolean;
 }
 
-export const todoListAtom = atom({
+export const todoListAtom = atom<ToDo[]>({
   key: "todoListState",
-  default: [] as ToDo[],
+  default: [],
 });
 
-export const todoListFilterState = atom({
+export const todoListFilterState = atom<
+  "Show All" | "Show Completed" | "Show Uncompleted"
+>({
   key: "TodoListFilter",
   default: "Show All",
 });

@@ -3,10 +3,10 @@ import { selector, useRecoilState } from "recoil";
 import { todoListAtom, todoListFilterState } from "../recoil/atoms/todoAtom";
 import { generateUID } from "../utils/uuid";
 
-export const TodoItemCreator: React.FC = () => {
-  const [inputValue, setInputValue] = useState<string>("");
+export const TodoItemCreator = () => {
+  const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useRecoilState(todoListAtom);
-  const [warning, setWarning] = useState<string>("");
+  const [warning, setWarning] = useState("");
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
